@@ -1,8 +1,3 @@
-// -------------------------------------------------------------
-// FreeCycle WebSocket Server (2025)
-// Supports: notifications + chat rooms
-// -------------------------------------------------------------
-
 module.exports = class SocketServer {
     constructor(io) {
         this.io = io;
@@ -15,7 +10,7 @@ module.exports = class SocketServer {
             console.log("Socket connected:", socket.id);
 
             // -------------------------------
-            // 1. USER NOTIFICATION ROOM
+            //     USER NOTIFICATION ROOM
             // -------------------------------
             const userId = socket.handshake.query.userId;
             
@@ -25,7 +20,7 @@ module.exports = class SocketServer {
             }
 
             // -------------------------------
-            // 2. CHAT SOCKET LOGIC
+            //        CHAT SOCKET LOGIC
             // -------------------------------
             socket.on("joinItemRoom", ({ itemId }) => {
                 if (!itemId) return;
@@ -53,7 +48,7 @@ module.exports = class SocketServer {
             });
 
             // -------------------------------
-            // 3. DISCONNECT
+            //          DISCONNECT
             // -------------------------------
             socket.on("disconnect", () => {
                 console.log("Socket disconnected:", socket.id);
@@ -61,3 +56,4 @@ module.exports = class SocketServer {
         });
     }
 };
+
