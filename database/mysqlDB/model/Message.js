@@ -23,7 +23,7 @@ module.exports = (sequelize, DataTypes) => {
             allowNull: false
         },
 
-        // Optional: For message read receipts
+        //For message read receipts
         read: {
             type: DataTypes.BOOLEAN,
             defaultValue: false
@@ -38,3 +38,4 @@ module.exports = (sequelize, DataTypes) => {
 
     return Message;
 };
+
