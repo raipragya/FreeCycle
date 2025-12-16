@@ -8,7 +8,7 @@ const requireAuth = (req, res, next) => {
             return res.status(401).json({ error: "No token provided" });
         }
 
-        const token = authHeader.split(" ")[1]; // Bearer <token>
+        const token = authHeader.split(" ")[1];
 
         const decoded = jwt.verify(
             token,
@@ -24,3 +24,4 @@ const requireAuth = (req, res, next) => {
 };
 
 module.exports = { requireAuth };
+
