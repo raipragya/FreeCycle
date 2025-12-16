@@ -3,7 +3,6 @@ const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const router = express.Router();
 
-// FIXED PATH 
 const db = require('../database/mysqlDB').model;
 
 const User = db.User;
@@ -27,7 +26,7 @@ function generateToken(user) {
 }
 
 // ===================================================
-// Register
+//                     Register
 // ===================================================
 router.post('/register', async (req, res) => {
     try {
@@ -71,7 +70,7 @@ router.post('/register', async (req, res) => {
 });
 
 // ===================================================
-// Login
+//                     Login
 // ===================================================
 router.post('/login', async (req, res) => {
     try {
@@ -111,3 +110,4 @@ router.post('/login', async (req, res) => {
 });
 
 module.exports = router;
+
