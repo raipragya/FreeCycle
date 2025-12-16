@@ -19,12 +19,12 @@ class RestFulApiMiddleware {
         // ---------------------------
         // Essential Middlewares
         // ---------------------------
-        this.app.use(cors());                  // Enable CORS
-        this.app.use(helmet());                // Secure headers
-        this.app.use(express.json());          // JSON parser
-        this.app.use(express.urlencoded({ extended: true })); // URL-encoded parser
-        this.app.use(compression());           // Response compression
-        this.app.use(morgan("dev"));           // Logging for development
+        this.app.use(cors());                  
+        this.app.use(helmet());                
+        this.app.use(express.json());          
+        this.app.use(express.urlencoded({ extended: true })); 
+        this.app.use(compression());          
+        this.app.use(morgan("dev"));          
 
         // ---------------------------
         // Static files (for uploads)
@@ -34,3 +34,4 @@ class RestFulApiMiddleware {
 }
 
 module.exports = new RestFulApiMiddleware();
+
