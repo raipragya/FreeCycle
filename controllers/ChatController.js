@@ -10,14 +10,14 @@ const Request = db.Request;
 const { requireAuth } = require("../middlewares/auth");
 
 // ========================================================
-// UTIL: Generate secure room name
+//             Generate secure room name
 // ========================================================
 function makeRoom(itemId, ownerId, requesterId) {
     return `chat-item-${itemId}-owner-${ownerId}-req-${requesterId}`;
 }
 
 // ========================================================
-// SOCKET SERVER INITIALIZATION
+//             SOCKET SERVER INITIALIZATION
 // ========================================================
 function setupChatSocket(io) {
     if (!io._chatInitialized) {
@@ -104,7 +104,7 @@ function setupChatSocket(io) {
 
 
 // ========================================================
-// REST CONTROLLER (HTTP Apis)
+//                 REST CONTROLLER
 // ========================================================
 module.exports = (io) => {
 
@@ -113,7 +113,7 @@ module.exports = (io) => {
 
 
     // ----------------------------------------------------
-    // GET /chat/:itemId  — Get chat history (with pagination)
+    //                  Get chat history
     // ----------------------------------------------------
     router.get("/:itemId", requireAuth, async (req, res) => {
         try {
@@ -155,7 +155,7 @@ module.exports = (io) => {
 
 
     // ----------------------------------------------------
-    // POST /chat/send  — Non-socket fallback message sender
+    //         Non-socket fallback message sender
     // ----------------------------------------------------
     router.post("/send", requireAuth, async (req, res) => {
         try {
@@ -212,3 +212,4 @@ module.exports = (io) => {
 
     return router;
 };
+
