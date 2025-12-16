@@ -1,7 +1,3 @@
-// --------------------------------
-// FreeCycle Backend - App.js
-// --------------------------------
-
 const express = require('express');
 const http = require('http');
 const socketio = require('socket.io');
@@ -72,7 +68,7 @@ module.exports = class App {
     async start() {
         await this.mountMiddleware();
         await this.mountDatabase();
-        await mysqlDB.mountModel();   // 🔴 REQUIRED
+        await mysqlDB.mountModel();
         await this.mountSocketServer();
         await this.mountController();
 
@@ -84,3 +80,4 @@ module.exports = class App {
         });
     }
 };
+
