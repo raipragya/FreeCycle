@@ -1,7 +1,3 @@
-// ----------------------------------------------------------
-// FreeCycle Backend - API Controller Loader (2025)
-// ----------------------------------------------------------
-
 const express = require('express');
 
 // Import Controllers
@@ -38,18 +34,19 @@ class ApiController {
         // Main REST API Routes
         // --------------------------
 
-        this.app.use('/auth', AuthController);                 // Register/Login
-        this.app.use('/users', UserController);               // Profile, rating, settings
-        this.app.use('/items', ItemController);               // Item CRUD
-        this.app.use('/requests', RequestController);         // Request flows
-        this.app.use('/home', HomeController);                // Server status / file upload
+        this.app.use('/auth', AuthController);             
+        this.app.use('/users', UserController);             
+        this.app.use('/items', ItemController);             
+        this.app.use('/requests', RequestController);       
+        this.app.use('/home', HomeController);               
 
         // --------------------------
         // Controllers requiring socket.io
         
-        this.app.use('/chat', ChatController(this.io));       // Chat REST + sockets
-        this.app.use('/notifications', NotificationController(this.io)); // Push notifications
+        this.app.use('/chat', ChatController(this.io));      
+        this.app.use('/notifications', NotificationController(this.io)); 
     }
 }
 
 module.exports = new ApiController();
+
